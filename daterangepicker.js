@@ -1,34 +1,34 @@
 /**
-* @version: 2.0.9
-* @author: Dan Grossman http://www.dangrossman.info/
-* @copyright: Copyright (c) 2012-2015 Dan Grossman. All rights reserved.
-* @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
-* @website: https://www.improvely.com/
-*/
+ * @version: 2.0.9
+ * @author: Dan Grossman http://www.dangrossman.info/
+ * @copyright: Copyright (c) 2012-2015 Dan Grossman. All rights reserved.
+ * @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
+ * @website: https://www.improvely.com/
+ */
 
 (function(root, factory) {
 
   if (typeof define === 'function' && define.amd) {
-  define(['moment', 'jquery', 'exports'], function(momentjs, $, exports) {
-    root.daterangepicker = factory(root, exports, momentjs, $);
-  });
+    define(['moment', 'jquery', 'exports'], function(momentjs, $, exports) {
+      root.daterangepicker = factory(root, exports, momentjs, $);
+    });
 
   } else if (typeof exports !== 'undefined') {
-  var momentjs = require('moment');
-  var jQuery = window.jQuery;
-  if (jQuery === undefined) {
-    try {
-    jQuery = require('jquery');
-    } catch (err) {
-    if (!jQuery) throw new Error('jQuery dependency not found');
+    var momentjs = require('moment');
+    var jQuery = window.jQuery;
+    if (jQuery === undefined) {
+      try {
+        jQuery = require('jquery');
+      } catch (err) {
+        if (!jQuery) throw new Error('jQuery dependency not found');
+      }
     }
-  }
 
-  factory(root, exports, momentjs, jQuery);
+    factory(root, exports, momentjs, jQuery);
 
-  // Finally, as a browser global.
+    // Finally, as a browser global.
   } else {
-  root.daterangepicker = factory(root, {}, root.moment || moment, (root.jQuery || root.Zepto || root.ender || root.$));
+    root.daterangepicker = factory(root, {}, root.moment || moment, (root.jQuery || root.Zepto || root.ender || root.$));
   }
 
 }(this, function(root, daterangepicker, moment, $) {
